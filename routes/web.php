@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SignupController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,3 +18,7 @@ Route::get('/instagram_login', function () {
 Route::get('/instagram_signup', function () {
     return view('instagram_signup');
 });
+
+Route::get('/hi', [SignupController::class, 'Hi']);
+Route::get('/addition', [SignupController::class, 'Addition']);
+Route::get('/subtraction', [SignupController::class, 'Subtraction']);
