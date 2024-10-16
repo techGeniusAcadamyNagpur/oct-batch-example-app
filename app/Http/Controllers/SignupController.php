@@ -29,4 +29,16 @@ class SignupController extends Controller
         
         return $result;
     }
+
+    public function StringFunctionsDemo(){
+        $string="Tejaswi M";
+
+        $length_result=strlen($string);
+        $make_words_lower=strtolower($string);
+        $make_words_upper_case=strtoupper($string);
+        $find_substring=substr($string,2);
+
+    
+        return $find_substring;
+    }
 }
