@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Models\User;
+
 class SignupController extends Controller
 {
     public function Hi()
@@ -65,5 +68,27 @@ class SignupController extends Controller
         ;
 
         return $final_result;
+    }
+
+    public function Signup(Request $request){
+
+        $contact=$request->input('contact');
+        $password=$request->input('password');
+        $full_name=$request->input('full_name');
+        $email=$request->input('email');
+        $username=$request->input('username');
+
+        $insert=new User;
+        $insert->name=$full_name;
+        $insert->email=$email;
+        $insert->password=$password;
+        $insert->save();
+
+        if($insert){
+            return view('/instagram_login');
+        }else{
+            return "failed";
+        }
+        
     }
 }

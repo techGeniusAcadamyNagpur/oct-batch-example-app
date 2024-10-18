@@ -24,3 +24,5 @@ Route::get('/addition', [SignupController::class, 'Addition']);
 Route::get('/subtraction', [SignupController::class, 'Subtraction']);
 Route::get('/string-fun-demo', [SignupController::class, 'StringFunctionsDemo']);
 Route::get('/calculator', [SignupController::class, 'Calculator']);
+
+Route::post('/signup', [SignupController::class, 'Signup']);
