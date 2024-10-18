@@ -79,9 +79,11 @@ class SignupController extends Controller
         $username=$request->input('username');
 
         $insert=new User;
+        $insert->mobile_no=$contact;
         $insert->name=$full_name;
         $insert->email=$email;
         $insert->password=$password;
+        $insert->user_name=$username;
         $insert->save();
 
         if($insert){
