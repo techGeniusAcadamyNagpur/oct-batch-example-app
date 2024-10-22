@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class SignupController extends Controller
 {
@@ -36,13 +37,14 @@ class SignupController extends Controller
         return $result;
     }
 
-    public function Calculator(){
+    public function Calculator()
+    {
 
-        $do_addition=$this->Addition(10, 20);
-        $do_sub=$this->Subtraction(50, 20);
-        $do_multiply=$this->Multiply(50, 10);
+        $do_addition = $this->Addition(10, 20);
+        $do_sub = $this->Subtraction(50, 20);
+        $do_multiply = $this->Multiply(50, 10);
 
-        $final_result="Addtion=".$do_addition."<br> Subtraction=".$do_sub."<br> Multiply=".$do_multiply;
+        $final_result = "Addtion=" . $do_addition . "<br> Subtraction=" . $do_sub . "<br> Multiply=" . $do_multiply;
 
         return $final_result;
 
@@ -57,7 +59,7 @@ class SignupController extends Controller
         $make_words_upper_case = strtoupper($string);
         $find_substring = substr($string, 2);
 
-        $do_addition=$this->Addition(50, 20);
+        $do_addition = $this->Addition(50, 20);
 
         $final_result = "String is:" . $string . "<br>"
             . "Length=" . $length_result . "<br>"
@@ -70,27 +72,33 @@ class SignupController extends Controller
         return $final_result;
     }
 
-    public function Signup(Request $request){
+    public function Signup(Request $request)
+    {
 
-        $contact=$request->input('contact');
-        $password=$request->input('password');
-        $full_name=$request->input('full_name');
-        $email=$request->input('email');
-        $username=$request->input('username');
+        $contact = $request->input('contact');
+        $password = $request->input('password');
+        $full_name = $request->input('full_name');
+        $email = $request->input('email');
+        $username = $request->input('username');
 
-        $insert=new User;
-        $insert->mobile_no=$contact;
-        $insert->name=$full_name;
-        $insert->email=$email;
-        $insert->password=$password;
-        $insert->user_name=$username;
+        $insert = new User;
+        $insert->mobile_no = $contact;
+        $insert->name = $full_name;
+        $insert->email = $email;
+        $insert->password = $password;
+        $insert->user_name = $username;
         $insert->save();
 
-        if($insert){
-            return view('/instagram_login');
-        }else{
+        
+
+        if ($insert) {
+            $successMsg="You have signed up successfully";
+
+            return view('instagram_login', compact('successMsg', 'email'));
+
+        } else {
             return "failed";
         }
-        
+
     }
 }
