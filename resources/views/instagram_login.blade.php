@@ -13,12 +13,19 @@
         {{ $successMsg }}
     @endif
 
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <h1>{{$error}}</h1>
+        @endforeach
+    @endif
+
 
 
     <center>
         <h1>Instagram</h1>
-        <form action="">
-            <input type="text" name="username" id="username" value="@if(isset($email)) {{$email}} @endif" placeholder="user name, phone no, email"><br>
+        <form action="/login" method="POST">
+            @csrf
+            <input type="text" name="email" id="email" value="@if(isset($email)) {{$email}} @endif" placeholder="user name, phone no, email"><br>
             <input type="password" name="password" id="password" placeholder="Enter your password"><br>
             <input type="submit" value="Log in">
             <hr>
