@@ -7,6 +7,57 @@
     <title>Document</title>
 </head>
 
+<style>
+    body{
+        background-color:#f7f7f7;
+        
+    }
+    .box1{ 
+        background-color:white;
+        width: 300px;
+        margin:auto;
+        padding:50px;
+        text-align:center;   
+        outline: solid 2px #c6c6c6;       
+    }
+
+    .box1 h1{
+        font-family:Pristina;
+        font-size:70px;
+    }
+
+    .box1 h3{
+        color:#b1b1b1;
+        margin-top:-40px;
+    }
+
+    .box1 button{
+        color:white;
+        background-color:#00a3f0;
+        width: 225px;
+        height: 34px;
+        font-size:15px;
+        font-weight:bold;
+        border-radius: 3px;
+        border-color:#00a3f0;
+        margin:25px;
+        
+    }
+
+    .box1 input{
+        width: 200px;
+        padding:10px;
+        margin:3px;
+        background-color:#f3f3f3;
+        font-weight:light;
+        border-color:#e7e7e7;
+    }
+
+    .box1 label{
+        color:#b1b1b1;
+    }
+</style>
+
 <body>
 
     @if(isset($successMsg))
@@ -20,14 +71,14 @@
     @endif
 
 
-
-    <center>
+        <div class="box1">
         <h1>Instagram</h1>
         <form action="/login" method="POST">
             @csrf
             <input type="text" name="email" id="email" value="@if(isset($email)) {{$email}} @endif" placeholder="user name, phone no, email"><br>
             <input type="password" name="password" id="password" placeholder="Enter your password"><br>
-            <input type="submit" value="Log in">
+
+            <button>Log in</button>
             <hr>
         </form>
 
@@ -39,7 +90,8 @@
         <hr>
 
         Don't have an account? <a href="/instagram_signup">Sign up</a>
-    </center>
+    
+    </div>
 </body>
 
 </html>
