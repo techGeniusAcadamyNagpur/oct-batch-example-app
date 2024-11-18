@@ -5,6 +5,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +36,6 @@ Route::get('/logout', [LogoutController::class, 'Logout']);
 
 
 Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->middleware('auth');
+
+Route::get('/profile', [ProfileController::class, 'Profile'])->middleware('auth');
+Route::post('/profile/update', [ProfileController::class, 'Update'])->middleware('auth');

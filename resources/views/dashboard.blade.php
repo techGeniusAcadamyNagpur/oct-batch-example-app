@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Dashboard</h1>
+    <a href="/profile">Profile</a><br>
     <a href="/logout">Click to Logout</a>
 
     <center><h1>Welcome {{$user->name}}</h1></center>
