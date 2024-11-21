@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,3 +40,8 @@ Route::get('/dashboard', [DashboardController::class, 'Dashboard'])->middleware(
 
 Route::get('/profile', [ProfileController::class, 'Profile'])->middleware('auth');
 Route::post('/profile/update', [ProfileController::class, 'Update'])->middleware('auth');
+
+
+//Posts
+Route::get('/create_post', [PostsController::class, 'CreatePostScreen'])->middleware('auth');
+Route::post('/create_post_backend', [PostsController::class, 'CreatePost'])->middleware('auth');

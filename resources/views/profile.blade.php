@@ -19,6 +19,8 @@
             <input type="password" name="password" id="password" value="" placeholder="Password" required><br>
             <button>Update</button>
         </form>
+
+        <a href="/logout">Click to Logout</a>
 </center>
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
+use App\Models\Post;
 
 class DashboardController extends Controller
 {
@@ -13,6 +14,9 @@ class DashboardController extends Controller
 
         $userData=User::get();
 
-        return view('dashboard', compact('user', 'userData'));
+        //get posts data
+        $posts=Post::get();
+
+        return view('dashboard', compact('user', 'userData', 'posts'));
     }
 }
