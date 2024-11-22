@@ -9,9 +9,12 @@
     <h1>Profile</h1>
 <center>
     <h2>Edit Profile</h2>
-    <form method="post" action="/profile/update">
+    <form method="post" action="/profile/update" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" id="id" value="{{$user->id}}" placeholder="id" required><br>
+
+            <img src="{{$user->profile_pic_path}}" alt="" width="100" height="100">
+            <input type="file" name="profile_pic" id="profile_pic"><br>
             <input type="text" name="name" id="name" value="{{$user->name}}" placeholder="Name" required><br>
             <input type="text" name="user_name" id="user_name" value="{{$user->user_name}}" placeholder="User Name" required><br>
             <input type="email" name="email" id="email" value="{{$user->email}}" placeholder="Email" required><br>
