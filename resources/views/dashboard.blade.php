@@ -10,7 +10,7 @@
             background-color:#f5f5f5;
             width: 400px;
             margin:auto;
-            outline: solid 2px #c6c6c6;   
+            outline: solid 2px #c6c6c6;
         }
     </style>
 </head>
@@ -26,10 +26,16 @@
 
 
     <a href="/create_post">Create Post</a>
-    
+
     @foreach($posts as $post)
     <div class="box1">
-    <h3>{{$post->location}}</h1>
+
+    <!-- User detail start -->
+    <img src="{{$post->user->profile_pic_path}}" alt="" width="50" height="50">
+    <h1>{{$post->user->name}}</h1>
+     <!-- User detail end -->
+
+    <h3>{{$post->location}}</h3>
     <img src="{{url($post->image)}}" alt="" width="200" height="200">
     <h5>{{$post->caption}}</h1>
     </div>

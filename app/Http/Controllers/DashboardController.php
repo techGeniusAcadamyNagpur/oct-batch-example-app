@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $userData=User::get();
 
         //get posts data
-        $posts=Post::get();
+        $posts=Post::with('user')->orderBy('created_at', 'ASC')->get();
 
         return view('dashboard', compact('user', 'userData', 'posts'));
     }
