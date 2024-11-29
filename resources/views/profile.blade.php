@@ -90,7 +90,7 @@
             <input type="email" name="email" id="email" value="{{ $user->email }}" placeholder="Email" required><br>
             <input type="number" name="mobile_no" id="mobile_no" value="{{ $user->mobile_no }}"
                 placeholder="Mobile No" required><br>
-            <input type="password" name="password" id="password" value="" placeholder="Password" required><br>
+            <input type="password" name="password" id="password" value="" placeholder="Password"><br>
             <button>Update</button>
         </form>
     </div><br>

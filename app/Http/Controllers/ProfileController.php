@@ -23,19 +23,23 @@ class ProfileController extends Controller
         $email = $request->input('email');
         $mobile_no = $request->input('mobile_no');
         $password = $request->input('password');
-
-        $profilePic = $request->file('profile_pic');
+        
 
         //process image start
+        $profilePicCheck = $request->has('profile_pic');
 
-        $fileName = $profilePic->getClientOriginalName();
+        if ($profilePicCheck) {
+            $profilePic = $request->file('profile_pic');
 
-        $fileExtension = $profilePic->getClientOriginalExtension();
-        $generateNewName = Str::random(10) . "." . $fileExtension;
+            $fileName = $profilePic->getClientOriginalName();
 
-        $storeTofileSystem = $profilePic->storeAs('uploads/profile_pictures', $generateNewName, 'public');
+            $fileExtension = $profilePic->getClientOriginalExtension();
+            $generateNewName = Str::random(10) . "." . $fileExtension;
 
-        $profilePicRefName = "storage/uploads/profile_pictures/" . $generateNewName;
+            $storeTofileSystem = $profilePic->storeAs('uploads/profile_pictures', $generateNewName, 'public');
+
+            $profilePicRefName = "storage/uploads/profile_pictures/" . $generateNewName;
+        }
 
         //process image end
 
@@ -44,10 +48,17 @@ class ProfileController extends Controller
         $update->user_name = $user_name;
         $update->email = $email;
         $update->mobile_no = $mobile_no;
-        $update->password = $password;
-        $update->profile_pic_path = $profilePicRefName;
+
+        if ($password != null) {
+            $update->password = $password;
+        }
+
+        if ($profilePicCheck) {
+            $update->profile_pic_path = $profilePicRefName;
+        }
+
         $update->save();
 
-        return "success";
+        return redirect('/profile');
     }
 }
