@@ -1,59 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        body {
-            background-color: #ffffff;
-        }
-
-        .box1 {
-            background-color: #ffffff;
-            width: 400px;
-            margin: auto;
-            border-radius: 10px;
-            padding: 25px;
-            outline: solid 1px #ff9aca;
-            box-shadow: 0px 0px 25px #ff9aca;
-        }
-
-        .profile_image img {
-            border-radius: 50px;
-            position: sticky;
-        }
-
-        .username {
-            margin-top: -46px;
-            margin-left: 60px;
-            font-weight: 600;
-            position: sticky;
-        }
-
-        .fa-map-marker {
-            position: relative;
-            margin-left: 60px;
-            color: #4f4f4f;
-        }
-
-        .post_image {
-            background-color: #e5eeff;
-            margin-top: 10px;
-        }
-
-        .post_image img {
-            width: 400px;
-            height: 300px;
-        }
-
-    </style>
-</head>
-
-<body>
+@extends('layouts.default')
+@section('content')
     <h1>Dashboard</h1>
     <a href="/profile">Profile</a><br>
     <a href="/logout">Click to Logout</a>
@@ -71,7 +17,7 @@
     <a href="/create_post">Create Post</a>
 
     @foreach($posts as $post)
-        <div class="box1">
+        <div class="posts-box">
 
             <!-- User detail start -->
             <div class="profile_image">
@@ -94,6 +40,5 @@
             <lable>{{ $post->caption }}</lable>
         </div><br>
     @endforeach
-</body>
+@stop
 
-</html>

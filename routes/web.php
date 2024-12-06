@@ -24,6 +24,14 @@ Route::get('/instagram_signup', function () {
     return view('instagram_signup');
 });
 
+Route::get('/layout', function () {
+    return view('layouts/default');
+});
+
+Route::get('/admin-dashboard', function () {
+    return view('pages/admin-panel/dashboard');
+});
+
 Route::get('/hi', [SignupController::class, 'Hi']);
 Route::get('/addition', [SignupController::class, 'Addition']);
 Route::get('/subtraction', [SignupController::class, 'Subtraction']);
