@@ -13,7 +13,8 @@
 
         <!-- Content Start -->
         <div class="content">
-            <h1>Dashboard page</h1>
+            <h1>Posts page</h1>
+
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">

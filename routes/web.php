@@ -32,6 +32,14 @@ Route::get('/admin-dashboard', function () {
     return view('pages/admin-panel/dashboard');
 });
 
+Route::get('/admin-users', function () {
+    return view('pages/admin-panel/users');
+});
+
+Route::get('/admin-posts', function () {
+    return view('pages/admin-panel/posts');
+});
+
 Route::get('/hi', [SignupController::class, 'Hi']);
 Route::get('/addition', [SignupController::class, 'Addition']);
 Route::get('/subtraction', [SignupController::class, 'Subtraction']);

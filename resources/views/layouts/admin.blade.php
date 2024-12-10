@@ -6,6 +6,8 @@
 <body>
 @include('includes.admin-panel.header')
 
+@include('includes.admin-panel.sidebar')
+
  <!-- include page -->
 @yield('content')
 
