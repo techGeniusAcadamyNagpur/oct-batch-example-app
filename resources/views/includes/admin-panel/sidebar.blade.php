@@ -15,9 +15,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="admin-dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="admin-users" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Users</a>
-                    <a href="admin-posts" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Posts</a>
+                    <a href="admin-dashboard" class="nav-item nav-link {{ Route::is('admin-dashboard') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="admin-users" class="nav-item nav-link {{ Route::is('admin-users') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Users</a>
+                    <a href="admin-posts" class="nav-item nav-link {{ Route::is('admin-posts') ? 'active' : '' }}"><i class="fa fa-keyboard me-2"></i>Posts</a>
                 </div>
             </nav>
         </div>

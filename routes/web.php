@@ -30,15 +30,15 @@ Route::get('/layout', function () {
 
 Route::get('/admin-dashboard', function () {
     return view('pages/admin-panel/dashboard');
-});
+})->name('admin-dashboard');
 
 Route::get('/admin-users', function () {
     return view('pages/admin-panel/users');
-});
+})->name('admin-users');
 
 Route::get('/admin-posts', function () {
     return view('pages/admin-panel/posts');
-});
+})->name('admin-posts');
 
 Route::get('/hi', [SignupController::class, 'Hi']);
 Route::get('/addition', [SignupController::class, 'Addition']);
