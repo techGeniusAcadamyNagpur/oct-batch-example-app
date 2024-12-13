@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,18 +28,6 @@ Route::get('/instagram_signup', function () {
 Route::get('/layout', function () {
     return view('layouts/default');
 });
-
-Route::get('/admin-dashboard', function () {
-    return view('pages/admin-panel/dashboard');
-})->name('admin-dashboard');
-
-Route::get('/admin-users', function () {
-    return view('pages/admin-panel/users');
-})->name('admin-users');
-
-Route::get('/admin-posts', function () {
-    return view('pages/admin-panel/posts');
-})->name('admin-posts');
 
 Route::get('/hi', [SignupController::class, 'Hi']);
 Route::get('/addition', [SignupController::class, 'Addition']);
@@ -61,3 +50,9 @@ Route::post('/profile/update', [ProfileController::class, 'Update'])->middleware
 //Posts
 Route::get('/create_post', [PostsController::class, 'CreatePostScreen'])->middleware('auth');
 Route::post('/create_post_backend', [PostsController::class, 'CreatePost'])->middleware('auth');
+
+
+//Admin-panel
+Route::get('/admin-dashboard', [AdminController::class, 'Dashboard'])->name('admin-dashboard');
+Route::get('/admin-users', [AdminController::class, 'UsersPage'])->name('admin-users');
+Route::get('/admin-posts', [AdminController::class, 'PostsPage'])->name('admin-posts');
