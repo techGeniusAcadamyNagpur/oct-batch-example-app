@@ -56,3 +56,17 @@ Route::post('/create_post_backend', [PostsController::class, 'CreatePost'])->mid
 Route::get('/admin-dashboard', [AdminController::class, 'Dashboard'])->name('admin-dashboard');
 Route::get('/admin-users', [AdminController::class, 'UsersPage'])->name('admin-users');
 Route::get('/admin-posts', [AdminController::class, 'PostsPage'])->name('admin-posts');
+
+
+//manager panel
+Route::get('/layout/manager', function () {
+    return view('layouts/manager');
+});
+
+Route::get('/manager-panel/dashboard', function () {
+    return view('pages/manager-panel/dashboard');
+});
+
+Route::get('/manager-panel/users', function () {
+    return view('pages/manager-panel/users');
+});
