@@ -1,52 +1,44 @@
 @extends('layouts.manager')
-@section('title', 'users')
 @section('content')
-<h1>Users</h1>
-
-
-
-
-                <!-- Recent Users -->
-                <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Users</h6>
-                        <a href="">Show All</a>
+<h1>hii its users page</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Responsive Hover Table</h3>
+                <div class="box-tools">
+                    <div class="input-group">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right"
+                            style="width: 150px;" placeholder="Search" />
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-white">
-                                    <th scope="col">id</th>
-                                    <th scope="col">profile picture</th>
-                                    <th scope="col">name</th>
-                                    <th scope="col">email</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <td><h3>{{$user->id}}</h3></td>
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>id</th>
+                        <th>profile picture</th>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>is verified</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach($users as $user)
+                    <tr>
+                    <td><h3>{{$user->id}}</h3></td>
                                     <td><img src="{{$user->profile_pic_path}}" alt="" width=50 height=50></td>
                                     <td><h3>{{$user->name}}</h3></td>
                                     <td><h3>{{$user->email}}</h3></td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Sales End -->
-
-
-
-
-
-
-
-
-
+                                    <td><h3>{!! $user->email_verified_at ? '<span class="label label-success">Verified</span>' : '<span class="label label-danger">Unverified</span>' !!}</h3></td>
+                                    <td><a class="btn bg-maroon" href="">Detail</a></td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
 @stop

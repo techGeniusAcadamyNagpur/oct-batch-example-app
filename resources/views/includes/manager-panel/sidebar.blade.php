@@ -31,9 +31,9 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Users</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Posts</a></li>
+                <li class="{{ Route::is('manager-dashboard') ? 'active' : '' }}"><a href="manager-dashboard"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+                <li class="{{ Route::is('manager-users') ? 'active' : '' }}"><a href="manager-users"><i class="fa fa-circle-o"></i> Users</a></li>
+                <li class="{{ Route::is('manager-posts') ? 'active' : '' }}"><a href="manager-posts"><i class="fa fa-circle-o"></i> Posts</a></li>
               </ul>
             </li>
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -63,10 +64,6 @@ Route::get('/layout/manager', function () {
     return view('layouts/manager');
 });
 
-Route::get('/manager-panel/dashboard', function () {
-    return view('pages/manager-panel/dashboard');
-});
-
-Route::get('/manager-panel/users', function () {
-    return view('pages/manager-panel/users');
-});
+Route::get('/manager-dashboard', [ManagerController::class, 'Dashboard'])->name('manager-dashboard');
+Route::get('/manager-users', [ManagerController::class, 'UsersPage'])->name('manager-users');
+Route::get('/manager-posts', [ManagerController::class, 'PostsPage'])->name('manager-posts');
