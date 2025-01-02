@@ -47,4 +47,26 @@ class ManagerController extends Controller
 
         return view('pages/manager-panel/posts', compact('posts'));
     }
+
+    public function UsersListAPI(){
+        $usersList=User::get();
+
+        return response()->json([
+            "status" => "success",
+            "message" => "user data fetched successfully by TGA",
+            "data" => $usersList
+        ], 200);
+    }
+
+    public function PostsAPI()
+    {
+
+        $posts = Post::get();
+
+        return response()->json([
+            "status" => "success",
+            "message" => "posts data fetched successfully by TGA",
+            "data" => $posts
+        ], 200);
+    }
 }
