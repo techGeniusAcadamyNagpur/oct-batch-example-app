@@ -66,4 +66,6 @@ Route::get('/layout/manager', function () {
 
 Route::get('/manager-dashboard', [ManagerController::class, 'Dashboard'])->name('manager-dashboard');
 Route::get('/manager-users', [ManagerController::class, 'UsersPage'])->name('manager-users');
+Route::get('/manager-user-details/{id}', [ManagerController::class, 'UserDetails'])->name('manager-user-details');
+
 Route::get('/manager-posts', [ManagerController::class, 'PostsPage'])->name('manager-posts');

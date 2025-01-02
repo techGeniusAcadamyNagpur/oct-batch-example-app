@@ -33,7 +33,7 @@
                                     <td><h3>{{$user->name}}</h3></td>
                                     <td><h3>{{$user->email}}</h3></td>
                                     <td><h3>{!! $user->email_verified_at ? '<span class="label label-success">Verified</span>' : '<span class="label label-danger">Unverified</span>' !!}</h3></td>
-                                    <td><a class="btn bg-maroon" href="">Detail</a></td>
+                                    <td><a class="btn bg-maroon" href="manager-user-details/{{$user->id}}">Detail</a></td>
                     </tr>
                     @endforeach
                 </table>

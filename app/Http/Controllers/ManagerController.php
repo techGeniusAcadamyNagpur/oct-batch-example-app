@@ -29,6 +29,14 @@ class ManagerController extends Controller
         return view('pages/manager-panel/users', compact('users'));
     }
 
+    public function UserDetails($id)
+    {
+        
+        $userData = User::where('id',$id)->first();
+
+        return view('pages/manager-panel/userDetailsPage', compact('userData'));
+    }
+
     public function PostsPage()
     {
 
