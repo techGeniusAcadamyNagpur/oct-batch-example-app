@@ -6,6 +6,7 @@ use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use Str;
+use Validator;
 
 class ProfileController extends Controller
 {
@@ -13,6 +14,46 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         return view('profile', compact('user'));
+    }
+
+    public function ProfileAPI(Request $request)
+    {
+
+        // Define validation rules
+        $validator = Validator::make($request->all(), [
+            'userId' => 'required', // unique check for email
+        ]);
+
+        // Check if validation fails
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'failure',
+                'message' => 'Validation failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $userId = $request->input('userId');
+
+        $user = User::where('id', $userId)->get();
+
+        if (count($user) > 0) {
+            //if user found
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Profile fetched successfully',
+                'data' => $user,
+            ], 200);
+
+        } else {
+            //if user not found
+            return response()->json([
+                'status' => 'failure',
+                'message' => 'User not found!!!!!!!!!!',
+                'data' => $user,
+            ], 400);
+        }
+
     }
 
     public function Update(Request $request)
@@ -23,7 +64,6 @@ class ProfileController extends Controller
         $email = $request->input('email');
         $mobile_no = $request->input('mobile_no');
         $password = $request->input('password');
-        
 
         //process image start
         $profilePicCheck = $request->has('profile_pic');
